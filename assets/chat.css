@@ -1,0 +1,2109 @@
+#webim_callback_form {
+    position: fixed;
+    overflow: hidden;
+    z-index: 10001;
+    font-weight: normal;
+}
+
+#webim_callback_form {
+  border: 2px solid #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 3px 4px 6px #666;
+  -webkit-box-shadow: 3px 4px 6px #666;
+  box-shadow: 3px 4px 6px #666;
+}
+
+#webim_callback_form_inner {
+    margin: 10px;
+}
+
+#webim_callback_form #webim_send_callback_order {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-bottom: 9px;
+    padding-top: 6px;
+    text-align: center;
+}
+
+.webim_root * {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style-type: none;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: normal;
+  position: static;
+  color: inherit;
+  text-shadow: none;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+.webim_root,
+.webim_root p,
+.webim_root .webim_inner_dialog {
+  background: #fff;
+  font: 11px/1.2em normal Arial, Helvetica, sans-serif;
+  color: #666;
+}
+.webim_root #webim_dialog_outer {
+    background: #fff;
+}
+
+.webim_root .webim_header {
+  position: relative;
+  padding: 4px;
+  color: #fff;
+  text-shadow: 1px 0 0 #666;
+  font-weight: bold;
+  background: #51a600;
+  background: -moz-linear-gradient(top, #51a600, #2f8800);
+  background: -webkit-gradient(linear, left top, left bottom, from(#51a600), to(#2f8800));
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.webim_root .webim_close,
+.webim_root .webim_close:hover {
+  background: transparent;
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 1px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 120%;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-weight: bold;
+}
+
+
+
+.webim_root input, .webim_root textarea, .webim_root select {
+  background: #fff;
+  padding: 2px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  resize: none;
+  overflow: auto;
+  font: 100%/1em normal Arial, Helvetica, sans-serif;
+  color: #000;
+  margin: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.webim_root select {
+    max-width: 100%;
+}
+
+.webim_root input[type=text] {
+    height: 15px;
+}
+
+.webim_root input:not([type="image"]), .webim_root textarea {
+    box-sizing: content-box;
+}
+
+.webim_root label {
+    visibility: visible;
+    width: auto;
+    display: inline;
+}
+
+.webim_root .webim_field_name {
+  display: block;
+  padding: 2px 4px 0;
+  font-weight: bold;
+  color: #000;
+}
+
+.webim_root input,
+.webim_root textarea {
+  width: 100%;
+  height: auto;
+}
+
+.webim_root .webim_input_outer input[type="checkbox"] {
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: auto;
+}
+
+/*send buttons*/
+.webim_root .btn_outer {
+  overflow: hidden;
+  padding: 4px 0 2px;
+}
+
+.webim_root .inner_btn_outer {
+  padding-top: 0;
+}
+
+.webim_root .btn_outer a {
+  text-decoration: none;
+}
+
+.webim_root .webim_textarea_outer .webim_input_outer {
+    margin-bottom: 0;
+}
+
+.webim_root .webim_input_outer {
+    position: relative;
+    margin: 3px 6px 3px 0;
+}
+.webim_root .webim_input_outer.webim_overlabel .webim_field_name {
+    position: absolute;
+    top: 2px;
+    color: #888;
+    white-space: nowrap;
+}
+.webim_root .webim_input_outer input,
+.webim_root .webim_input_outer textarea {
+    margin-top: 0;
+    margin-bottom: 9px;
+    display: inline-block;
+}
+
+.webim_root .webim_input_outer.webim_overlabel input[type=text]:disabled {
+    background: #EBEBEB;
+    color: #848484;
+}
+
+.webim_root .webim_input_outer .webim_error_message {
+    color: red;
+    font-size: 11px;
+    padding: 0 4px;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background: white;
+    white-space: nowrap;
+}
+
+.webim_root .webim_button_control {
+  outline: 0;
+  padding: 2px 12px;
+  height: 13px;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px #1f272b;
+  border: 1px solid #1c252b;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #232B30; /* old browsers */
+  background: -moz-linear-gradient(top, #3D4850 3%, #313d45 4%, #232B30 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #3D4850), color-stop(4%, #313d45), color-stop(100%, #232B30));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#3D4850', endColorstr = '#232B30', GradientType = 0); /* ie */
+  background: expression(' #232B30'); /*ie5*/
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.webim_root .webim_button_control:hover {
+  color: #fff;
+  background: #4C5A64; /* old browsers */
+  background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #4C5A64), color-stop(4%, #404F5A), color-stop(100%, #2E3940));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#4C5A64', endColorstr = '#2E3940', GradientType = 0); /* ie */
+}
+
+.webim_root .webim_button_control:active {
+  background-position: 0 top;
+  position: relative;
+  top: 1px;
+  color: #fff;
+  padding: 2px 12px 2px;
+  background: #20282D; /* old browsers */
+  background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #20282D), color-stop(51%, #252E34), color-stop(100%, #222A30));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#20282D', endColorstr = '#222A30', GradientType = 0); /* ie */
+  -moz-box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.webim_root .l_floated {
+  float: left;
+}
+
+.webim_root .r_floated {
+  float: right;
+}
+
+#webim_chat * {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style-type: none;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: normal;
+  position: static;
+  color: inherit;
+  text-shadow: none;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+#webim_chat_inner {
+    background: transparent;
+    text-align: left;
+}
+
+#webim_chat_inner * {
+    background: inherit;
+    text-align: inherit;
+}
+
+#webim_chat_inner form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#webim_chat  *:focus {
+  outline: 0 none;
+}
+
+#webim_chat  a:focus {
+  outline: none;
+}
+
+#webim_chat  a:hover{
+  font-family: inherit;
+}
+
+#webim_chat  *:active {
+  outline: 0 none;
+}
+
+#webim_chat strong {
+  font-weight: bold;
+  color: #000;
+}
+
+#webim_chat a {
+  color: #369BCD;
+  font-size: 100%;
+}
+
+#webim_chat img {
+  border: 0;
+}
+
+/*battlefield*/
+#webim_chat {
+    position: fixed;
+    overflow: hidden;
+    z-index: 10001;
+    font-weight: normal;
+}
+
+#webim_chat,
+#webim_chat p,
+#webim_chat .webim_inner_dialog {
+  background: #fff;
+  font: 11px/1.2em normal Arial, Helvetica, sans-serif;
+  color: #666;
+}
+#webim_chat #webim_dialog_outer {
+    background: #fff;
+}
+
+#webim_chat,
+#webim_chat .webim_inner_dialog {
+  border: 2px solid #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 3px 4px 6px #666;
+  -webkit-box-shadow: 3px 4px 6px #666;
+  box-shadow: 3px 4px 6px #666;
+}
+
+/*helpers*/
+#webim_chat .poweredby {
+  /*padding-top: 6px;*/
+  font-size: 82%;
+  clear: both;
+  white-space: nowrap;
+}
+
+#webim_chat .webim_button_control {
+  outline: 0;
+  padding: 2px 12px;
+  height: 13px;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px #1f272b;
+  border: 1px solid #1c252b;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #232B30; /* old browsers */
+  background: -moz-linear-gradient(top, #3D4850 3%, #313d45 4%, #232B30 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #3D4850), color-stop(4%, #313d45), color-stop(100%, #232B30));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#3D4850', endColorstr = '#232B30', GradientType = 0); /* ie */
+  background: expression(' #232B30'); /*ie5*/
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#webim_chat .webim_button_control:hover {
+  color: #fff;
+  background: #4C5A64; /* old browsers */
+  background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #4C5A64), color-stop(4%, #404F5A), color-stop(100%, #2E3940));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#4C5A64', endColorstr = '#2E3940', GradientType = 0); /* ie */
+}
+
+#webim_chat .webim_button_control:active {
+  background-position: 0 top;
+  position: relative;
+  top: 1px;
+  color: #fff;
+  padding: 2px 12px 2px;
+  background: #20282D; /* old browsers */
+  background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #20282D), color-stop(51%, #252E34), color-stop(100%, #222A30));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#20282D', endColorstr = '#222A30', GradientType = 0); /* ie */
+  -moz-box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+#webim_chat .l_floated {
+  float: left;
+}
+
+#webim_chat .r_floated {
+  float: right;
+}
+
+/* chat with lock, stock and barrel */
+#webim_chat #webim_main_header {
+    cursor: move;
+}
+#webim_chat .webim_header {
+  position: relative;
+  padding: 4px;
+  color: #fff;
+  text-shadow: 1px 0 0 #666;
+  font-weight: bold;
+  background: #51a600;
+  background: -moz-linear-gradient(top, #51a600, #2f8800);
+  background: -webkit-gradient(linear, left top, left bottom, from(#51a600), to(#2f8800));
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+#webim_chat .webim_close,
+#webim_chat .webim_close:hover {
+  background: transparent;
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 1px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 120%;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-weight: bold;
+}
+
+#webim_chat .webim_toggle_minimize,
+#webim_chat .webim_toggle_minimize:hover {
+    background: transparent;
+    display: block;
+    position: absolute;
+    right: 28px;
+    top: 0;
+    text-decoration: none;
+    color: #fff;
+    font-size: 120%;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-weight: bold;
+}
+
+#webim_chat_inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#webim_chat p {
+  margin: 2px 0;
+}
+
+#webim_chat #webim_chat_panels {
+  padding: 0 5px 2px;
+}
+
+#webim_chat input, #webim_chat textarea, #webim_chat select {
+  background: #fff;
+  padding: 2px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  resize: none;
+  overflow: auto;
+  font: 100%/1em normal Arial, Helvetica, sans-serif;
+  color: #000;
+  margin: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+#webim_chat select {
+    max-width: 100%;
+}
+
+#webim_chat input[type=text] {
+    height: 15px;
+}
+
+#webim_chat input:not([type="image"]), #webim_chat textarea {
+    box-sizing: content-box;
+}
+
+#webim_chat label {
+    visibility: visible;
+    width: auto;
+    display: inline;
+}
+
+#webim_chat .webim_field_name {
+  display: block;
+  padding: 2px 4px 0;
+  font-weight: bold;
+  color: #000;
+}
+
+#webim_chat input,
+#webim_chat textarea {
+  width: 100%;
+  height: auto;
+}
+
+#webim_chat .webim_input_outer input[type="checkbox"] {
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: auto;
+}
+
+/*send buttons*/
+#webim_chat .btn_outer {
+  overflow: hidden;
+  padding: 4px 0 2px;
+}
+
+#webim_chat .inner_btn_outer {
+  padding-top: 0;
+}
+
+#webim_chat .btn_outer a {
+  text-decoration: none;
+}
+
+#webim_chat .webim_chat_buttons_box .btn_outer {
+    display: inline-block;
+}
+
+/*chat*/
+#webim_dialog_outer {
+  text-align: left;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: absolute;
+  top: 90px;
+  bottom: 110px;
+  left: 5px;
+  right: 5px;
+  height: auto;
+  width: auto;
+}
+#webimm_dialogue {
+  overflow: auto;
+  padding: 4px 4px 0 4px;
+  margin: 0;
+  color: #000;
+  position: absolute;
+  top: 0;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  width: expression(webim_dialog_outer.offsetWidth - 2);
+  height: expression(webim_dialog_outer.offsetHeight - 16);
+}
+
+#webim_operator_typing_outer {
+    position:absolute;
+    height: 16px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#webim_operator_typing {
+    position: absolute;
+    left: 20px;
+    bottom: 1px;
+    font-style: italic;
+}
+#webim_operator_typing img {
+    position: absolute;
+    left: -18px;
+    bottom: 0;
+}
+
+#webimm_dialogue li {
+    margin: 0 0 2px;
+    list-style-image: none;
+    font-size: 100%;
+    display: list-item;
+    width: auto;
+    height: auto;
+}
+
+#webimm_dialogue strong {
+  font-weight: bold;
+}
+
+#webimm_dialogue .webim_act_t {
+  color: #666;
+}
+
+#webimm_dialogue .webim_kind_contacts,
+#webimm_dialogue .webim_kind_info {
+  color: #1E48B1;
+}
+
+#webimm_dialogue  .webim_kind_visitor strong,
+#webimm_dialogue  .webim_kind_file_visitor strong {
+  color: #a52a2a;
+}
+
+#webimm_dialogue  .webim_kind_cont_req strong,
+#webimm_dialogue  .webim_kind_file_operator strong,
+#webimm_dialogue  .webim_kind_operator strong {
+  color: #6495ed;
+}
+
+#webim_chat .webim_user_bar {
+  text-align: right;
+  height: 40px;
+  margin: 4px 0;
+  position: relative;
+}
+
+#webim_chat .webim_operator_name_outer {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    text-align: right;
+}
+
+#webim_chat img.webim_avatar {
+  border: 1px solid #ccc;
+  vertical-align: middle;
+  margin: 0 0 0 10px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+#webim_chat .webim_user_bar  .webim_nickname {
+  font-size: 127%
+}
+
+#webim_rate_operator_dialog {
+    line-height: 20px;
+}
+
+#webim_chat p.webim_msg {
+  padding: 0 8px 4px;
+}
+
+#webim_chat #webim_first_question_panel .webim_visitor_info_outer,
+#webim_chat #webim_offline_mode_panel .webim_visitor_info_outer {
+    margin-top: 15px;
+}
+#webim_chat .webim_textarea_outer .webim_input_outer {
+    margin-bottom: 0;
+}
+
+#webim_chat .webim_input_outer {
+    position: relative;
+    margin: 3px 6px 3px 0;
+}
+#webim_chat .webim_input_outer.webim_overlabel .webim_field_name {
+    position: absolute;
+    top: 2px;
+    color: #888;
+    white-space: nowrap;
+}
+#webim_chat .webim_input_outer input,
+#webim_chat .webim_input_outer textarea {
+    margin-top: 0;
+    margin-bottom: 9px;
+    display: inline-block;
+}
+
+#webim_chat .webim_input_outer.webim_overlabel input[type=text]:disabled {
+    background: #EBEBEB;
+    color: #848484;
+}
+
+#webim_chat .webim_input_outer .webim_error_message {
+    color: red;
+    font-size: 11px;
+    padding: 0 4px;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background: white;
+    white-space: nowrap;
+}
+
+#webim_chat.ie_quirk_mode .webim_input_outer .webim_error_message {
+    position: static;
+}
+
+#webim_bottom_panel {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+}
+#webim_chat_message {
+    margin-right: 6px;
+}
+
+#show_send_chat_history_dialog_link_outer {
+    padding-top: 3px;
+}
+
+#webim_chat .webim_inner_dialog {
+    display: none;
+    position: absolute;
+    z-index: 10003;
+    text-align: left;
+}
+
+#webim_chat .webim_inner_dialog_content {
+    margin: 5px 11px 5px 5px;
+}
+
+#webim_chat .webim_overlay {
+    display: none;
+    position: absolute;
+    top: 22px;
+    bottom: 5px;
+    left: 0;
+    right: 3px;
+    z-index: 10002;
+    background: white;
+    opacity: 0.6;
+}
+
+#webim_rate_operator_dialog {
+    top: 40px;
+    height: 100px;
+    right: 5px;
+    width: 150px;
+}
+
+#webim_send_chat_history_dialog {
+    bottom: 10px;
+    height: 130px;
+    left: 4px;
+    right: 6px;
+}
+
+#webim_upload_file_dialog {
+    bottom: 10px;
+    right: 10px;
+}
+
+#webim_chat #webim_show_upload_file_dialog_button,
+#webim_chat #webim_show_upload_file_offline_dialog_button,
+#webim_chat #show_send_chat_history_dialog_link {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+#webim_upload_file {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    font-size: 72px !important;
+    top: -4px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#webim_chat .webim_chat_buttons_box {
+    position: relative;
+}
+#webim_chat .webim_right_buttons {
+    position: absolute;
+    right: 0;
+    text-align: right;
+    margin-left: 25px;
+}
+#webim_chat .webim_chat_buttons_box img {
+    vertical-align: middle;
+    display: block;
+}
+#webim_chat .webim_chat_buttons_box .webim_button_control,
+#webim_chat .webim_chat_buttons_box .webim_text_control {
+    display: block;
+    line-height: 14px;
+}
+#webim_chat .webim_chat_buttons_box .webim_text_control {
+    padding: 2px 0;
+}
+#webim_chat .webim_chat_buttons_box .webim_right_buttons .btn_outer {
+    margin-left: 2px;
+}
+#webim_chat .webim_chat_buttons_box .webim_left_buttons .btn_outer {
+    margin-right: 2px;
+}
+#webim_chat .webim_chat_buttons_box .btn_outer {
+    vertical-align: top;
+}
+#webim_upload_form .btn_outer {
+    margin-left: 10px;
+    position: relative;
+}
+
+
+#webim_chat.webim_chat_minimized {
+    min-height: 0 !important;
+    height: auto !important;
+    top: inherit !important;
+    bottom: 3px !important;
+}
+
+#webim_chat.webim_chat_minimized .ui-resizable-se,
+#webim_chat.webim_chat_minimized .webim_inner_dialog,
+#webim_chat.webim_chat_minimized #webim_chat_inner form,
+#webim_chat.webim_chat_minimized .webim_toggle_minimize {
+    display: none !important;
+}
+#webim_chat.webim_separate_window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+#webim_chat.webim_separate_window .webim_toggle_minimize {
+    display: none !important;
+}
+
+#webim_chat.webim_chat_minimized #webim_main_header {
+    cursor: pointer !important;
+}
+
+#webim_chat.webim_separate_chat_window_mode {
+    border-radius: 0;
+    border: 0;
+}
+#webim_chat.webim_separate_chat_window_mode #webim_main_header {
+    border-radius: 0;
+}
+
+#webim_chat.webim_rtl_lang {
+    direction: rtl;
+}
+
+#webim_chat.webim_rtl_lang #webim_rate_operator_dialog .webim_inner_dialog_content {
+    margin: 5px 11px 5px 5px;
+    text-align: right;
+}
+
+#webim_chat.webim_rtl_lang #webim_send_chat_history_dialog .webim_inner_dialog_content {
+    margin: 5px 11px 5px 5px;
+    text-align: right;
+}
+
+#webim_chat.webim_rtl_lang #webim_dialog_outer {
+    text-align: right;
+}
+
+#webim_chat.webim_rtl_lang #webim_chat_message {
+    text-align: right;
+    margin: 0 0 0 6px;
+}
+
+/*
+ * jQuery UI Resizable 1.8.17
+ */
+#webim_chat .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; }
+#webim_chat .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+#webim_chat .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+#webim_chat .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+#webim_chat .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+
+#webim_chat .ui-icon { width: 16px; height: 16px; background-image: url(https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/images/ui-icons_222222_256x240.png)/*{iconsContent}*/; }
+#webim_chat .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+#webim_attached_files_list {
+    padding-bottom: 10px !important;
+}
+#webim_attached_files_list:empty {
+    display: none;
+}
+
+
+#webim_sound_control_button {
+    display: inline-block;
+    overflow: hidden;
+    padding: 4px 0 2px;
+}
+#webim_sound_control_button img {
+    padding: 2px 2px !important;
+    border: none;
+}
+#webim_sound_control_button img:hover {
+    padding: 2px 2px;
+    cursor: pointer;
+}
+#webim_sound_control_button.sound_turned_on img#sound-control-off-img {
+    display: none;
+}
+#webim_sound_control_button.sound_turned_off img#sound-control-on-img {
+    display: none;
+}
+
+.webim_chat_image_preview {
+    border-radius: 3px;
+    height:auto;
+    width:auto;
+    max-width:150px;
+    max-height:50px;
+    /*    box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+
+}
+
+/*###################  Notifications ##################*/
+
+.webim_notification_div {
+    z-index: 999999;
+    position: fixed;
+    background-color: rgba(234, 234, 234, 0.93);
+    border: 1px solid #C1C1C1;
+    border-bottom: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: normal;
+    /*overflow: auto;*/
+}
+
+.webim_notification_div .webim_avatar_img {
+    /*min-height: 85%;*/
+    /*min-width: 85%;*/
+    /*border-radius: 15px;*/
+    position: absolute;
+    margin: auto;
+    top: 5%;
+    left: 0;
+    right: 0;
+}
+
+.webim_notification_div .webim_images {
+    /*background-color: #faff51;*/
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 90%;
+    bottom: 0;
+    border-right: 1px solid #C1C1C1;
+}
+
+.webim_notification_div .webim_close {
+    /*background-color: #ff2632;*/
+
+    text-decoration: none;
+    color: #767676;
+    position: absolute;
+    left: 90%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    /*margin-top: 10px;*/
+}
+
+.webim_notification_div .webim_notification_text {
+    padding-left: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    cursor: pointer;
+    color: #424242;
+}
+
+.webim_notification_div .webim_notification_text .webim_notification_body {
+    /*background-color: #0000ff;*/
+}
+
+.webim_notification_div .webim_notification_text .webim_notification_name {
+    font-style: italic;
+    /*background-color: #6bffa3;*/
+    font-weight: bold;
+}
+
+
+
+/*###################  Account specific ##################*/
+
+#webim_chat.webim_a_informactiveru,
+#webim_chat.webim_a_informactiveru p,
+#webim_chat.webim_a_informactiveru .webim_inner_dialog {
+    background: #caeefa;
+}
+
+/*#webim_chat.webim_a_nevalru,*/
+/*#webim_chat.webim_a_nevalru p,*/
+/*#webim_chat.webim_a_nevalru .webim_inner_dialog {*/
+    /*background: #8b9bd7;*/
+    /*color: #fff;*/
+/*}*/
+
+/*#webim_chat.webim_a_nevalru .webim_button_control {*/
+    /*background: #feaf14;*/
+    /*border-bottom-color: #c3865a;*/
+/*}*/
+
+#webim_chat.webim_a_allsoftru .webim_button_control {
+    text-shadow: 0 0 #fff;
+    font-size: 15px;
+    padding: 6px 12px;
+    border: 1px solid #58ad15;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background: #469f1a; /* old browsers */
+    background: -moz-linear-gradient(top, #66bd26 3%, #66bd26 4%, #469f1a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #66bd26), color-stop(4%, #66bd26), color-stop(100%, #469f1a));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#66bd26', endColorstr = '#469f1a', GradientType = 0); /* ie */
+}
+#webim_chat.webim_a_allsoftru #webim_show_upload_file_dialog_button,
+#webim_chat.webim_a_allsoftru #webim_show_upload_file_offline_dialog_button,
+#webim_chat.webim_a_allsoftru #show_send_chat_history_dialog_link {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#webim_chat.webim_a_allsoftru .webim_close,
+#webim_chat.webim_a_allsoftru .webim_header {
+    color: #555;
+    text-shadow: 0 0 #000;
+}
+#webim_chat.webim_a_allsoftru {
+    min-height: 515px;
+    min-width: 515px;
+}
+#webim_chat.webim_a_allsoftru .webim_user_bar  .webim_nickname {
+    color: #ffce0b;
+}
+
+#webim_chat.webim_a_timewebcom .webim_button_control {
+    text-shadow: 0 0 #fff;
+    font-size: 15px;
+    padding: 6px 12px;
+    border: 1px solid #58ad15;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background: #469f1a; /* old browsers */
+    background: -moz-linear-gradient(top, #66bd26 3%, #66bd26 4%, #469f1a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #66bd26), color-stop(4%, #66bd26), color-stop(100%, #469f1a));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#66bd26', endColorstr = '#469f1a', GradientType = 0); /* ie */
+}
+#webim_chat.webim_a_timewebcom #webim_show_upload_file_dialog_button,
+#webim_chat.webim_a_timewebcom #webim_show_upload_file_offline_dialog_button,
+#webim_chat.webim_a_timewebcom #show_send_chat_history_dialog_link {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#webim_chat.webim_a_timewebcom .webim_close,
+#webim_chat.webim_a_timewebcom .webim_header {
+    color: #555;
+    text-shadow: 0 0 #000;
+}
+#webim_chat.webim_a_timewebcom {
+    min-height: 515px;
+    min-width: 700px;
+}
+#webim_chat.webim_a_timewebcom .webim_user_bar  .webim_nickname {
+    color: #ffce0b;
+}
+
+#webim_chat.webim_a_pecomru #webim_chat_panels,
+#webim_chat.webim_a_pecomru #webim_online_mode_panel {
+    position: static;
+}
+
+#webim_chat.webim_a_bmwaxselru, #webim_chat.webim_a_bmwaxselru .webim_inner_dialog {
+    border-color: #818181;
+}
+
+#webim_chat.webim_a_scrapgoods #webim_show_rate_operator_dialog_link {
+    display: none;
+}
+
+#webim_chat.webim_a_prologyru #webimm_dialogue .webim_kind_info * {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#webim_chat.webim_a_brokerru {
+    border: none;
+
+    -webkit-box-shadow: 3px 2px 11px #888;
+    -moz-box-shadow: 3px 2px 11px #888;
+    box-shadow: 3px 2px 11px #888;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#webim_chat.webim_a_brokerru * {
+    background: transparent;
+}
+
+#webim_chat.webim_a_brokerru input,
+#webim_chat.webim_a_brokerru textarea {
+    background: #fff;
+}
+
+#webim_chat.webim_a_brokerru .webim_header {
+    -webkit-box-shadow: inset 0 10px 15px -5px #eee;
+    -moz-box-shadow: inset 0 10px 15px -5px #eee;
+    box-shadow: inset 0 10px 15px -5px #eee;
+
+    border-radius: 0;
+    color: #fff;
+    text-shadow: none;
+}
+
+#webim_chat.webim_a_brokerru .webim_close {
+    background: #909192;
+    color: #fff;
+    top: 0;
+    right: 0;
+    padding: 2px 4px;
+    border-radius: 0 0 0 3px;
+}
+
+#webim_chat.webim_a_brokerru .webim_user_bar {
+    text-align: inherit;
+}
+
+#webim_chat.webim_a_brokerru .webim_logo {
+    display: none;
+}
+
+#webim_chat.webim_a_brokerru img.webim_avatar {
+    border: 1px solid #b3c7db;
+    right: inherit;
+}
+
+#webim_chat.webim_a_brokerru .webim_operator_name_outer {
+    left: 63px;
+    right: inherit;
+    text-align: inherit;
+}
+
+#webim_chat.webim_a_brokerru .webim_user_bar .webim_nickname {
+    font-size: 17px;
+    color: #277aca;
+    font-weight: normal;
+}
+
+#webim_chat.webim_a_brokerru a {
+    color: #369BCD;
+}
+
+#webim_chat.webim_a_brokerru #webim_dialog_outer {
+    background: #e5f2ff;
+    border: none;
+
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    -webkit-box-shadow: inset 0 10px 15px -5px #bbb;
+    -moz-box-shadow: inset 0 10px 15px -5px #bbb;
+    box-shadow: inset 0 10px 15px -5px #bbb;
+
+    margin: 5px 0 0;
+
+    left: 0;
+    right: 0;
+}
+
+#webim_chat.webim_a_brokerru #webimm_dialogue {
+    font-size: 13px;
+    padding: 15px 15px 0 15px;
+    margin: 0;
+}
+
+#webim_chat.webim_a_brokerru #webimm_dialogue li {
+    line-height: 18px;
+    padding-bottom: 10px;
+}
+
+#webim_chat.webim_a_brokerru #webimm_dialogue .webim_act_t .webim_message_time {
+    font-size: 9px;
+}
+
+#webim_chat.webim_a_brokerru #webim_bottom_panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 12px;
+    background: #eff0f2;
+}
+
+#webim_chat.webim_a_brokerru #webim_chat_message {
+    margin-right: 0;
+}
+
+#webim_chat.webim_a_brokerru textarea {
+    padding: 7px 2%;
+    font-size: 13px;
+    height: 80px;
+    width: 96%;
+}
+
+#webim_chat.webim_a_brokerru .webim_chat_buttons_box {
+    padding-top: 6px;
+}
+
+#webim_chat.webim_a_brokerru .webim_left_buttons {
+    visibility: hidden;
+}
+
+#webim_chat.webim_a_brokerru .webim_button_control {
+    background: #989898; /* Old browsers */
+    background: -moz-linear-gradient(top, #989898 0%, #848484 50%, #989898 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#989898), color-stop(50%,#848484), color-stop(100%,#989898)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #989898 0%,#848484 50%,#989898 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #989898 0%,#848484 50%,#989898 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #989898 0%,#848484 50%,#989898 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #989898 0%,#848484 50%,#989898 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989898', endColorstr='#989898',GradientType=0 ); /* IE6-9 */
+
+    border: 1px solid #7b7b7b;
+    border-top: 2px solid #b3b3b3;
+
+    color: #fff;
+    display: block;
+    padding: 6px 16px;
+    text-transform: uppercase;
+}
+
+#webim_chat.webim_a_brokerru #webim_show_upload_file_dialog_button,
+#webim_chat.webim_a_brokerru #webim_show_upload_file_offline_dialog_button {
+    padding: 6px 16px;
+}
+
+#webim_chat.webim_a_brokerru #webim_send_chat_message_button.webim_button_control,
+#webim_chat.webim_a_brokerru #webim_send_chat_message_button.webim_button_control:hover {
+    background: #2779c8; /* Old browsers */
+    background: -moz-linear-gradient(top, #2779c8 0%, #236db5 50%, #2779c8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2779c8), color-stop(50%,#236db5), color-stop(100%,#2779c8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #2779c8 0%,#236db5 50%,#2779c8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #2779c8 0%,#236db5 50%,#2779c8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #2779c8 0%,#236db5 50%,#2779c8 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #2779c8 0%,#236db5 50%,#2779c8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2779c8', endColorstr='#2779c8',GradientType=0 ); /* IE6-9 */
+
+    border: 1px solid #246fb7;
+    border-top: 2px solid #35a7de;
+}
+
+#webim_chat.webim_a_brokerru .webim_inner_dialog {
+    border: 1px solid #ebebeb;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    font-size: 12px;
+}
+
+#webim_chat.webim_a_brokerru #webim_chat_inner form {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #edeef1 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(99%,#edeef1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#edeef1 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#edeef1 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#edeef1 99%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#edeef1 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef1',GradientType=0 ); /* IE6-9 */
+}
+
+#webim_chat.webim_a_brokerru .webim_inner_dialog .webim_header {
+    color: #000;
+}
+
+#webim_chat.webim_a_brokerru #webim_rate_operator_dialog .webim_inner_dialog_content {
+    line-height: 18px;
+}
+
+#webim_chat.webim_a_brokerru #webim_rate_operator_dialog .webim_inner_dialog_content a {
+    color: #000;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#webim_chat.webim_a_brokerru #webim_rate_operator_dialog .webim_inner_dialog_content a:hover {
+    color: #040;
+    text-decoration: underline;
+}
+
+#webim_chat.webim_a_brokerru #webim_first_question_panel {
+    padding: 0 8px;
+}
+
+#webim_chat.webim_a_brokerru #webim_first_question_panel p {
+    background: transparent;
+}
+
+#webim_chat.webim_a_brokerru #webim_first_question_panel #webim_visitor_info {
+    width: 80%;
+}
+
+#webim_chat.webim_a_brokerru #webim_first_question_panel #webim_visitor_info input {
+    padding: 5px;
+}
+
+#webim_chat.webim_a_brokerru #webim_first_question_panel .webim_input_outer {
+    margin: 3px 0;
+}
+
+#webim_chat.webim_a_brokerru input,
+#webim_chat.webim_a_brokerru textarea {
+    box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+#webim_chat.webim_a_brokerru .webim_inner_dialog {
+    background: #fff;
+}
+
+#webim_chat.webim_a_brokerru .webim_overlay {
+    background: #fff;
+    opacity: 0.6;
+}
+
+#webim_chat.webim_a_sportmasterru {
+  min-width: 390px;
+}
+#webim_chat.webim_a_sportmasterru #webim_rate_operator_dialog {
+    top: auto;
+    bottom: 40px;
+}
+
+#webim_chat.webim_a_ostincom {
+  min-width: 310px;
+}
+#webim_chat.webim_a_ostincom #webim_rate_operator_dialog {
+    top: auto;
+    bottom: 40px;
+}
+
+#webim_chat.webim_a_reutovbaniru .webim_header {
+    padding: 9px;
+}
+#webim_chat.webim_a_reutovbaniru .webim_user_bar {
+    background-color: #f0f0f0;
+    margin: 0 -5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#webim_chat.webim_a_reutovbaniru #webim_dialog_outer {
+    border: 0;
+}
+#webim_chat.webim_a_reutovbaniru .webim_close {
+  right: 10px;
+  top: 7px;
+}
+#webim_chat.webim_a_reutovbaniru .webim_toggle_minimize {
+    right: 32px;
+    top: 5px;
+}
+#webim_chat.webim_a_reutovbaniru img.webim_avatar {
+    top: 8px;
+    right: 8px;
+    border: 0;
+}
+#webim_chat.webim_a_reutovbaniru .webim_operator_name_outer {
+    padding: 8px;
+}
+#webim_chat.webim_a_reutovbaniru .webim_button_control {
+  padding-bottom: 4px;
+  /*color: #777777;*/
+  color: #fff;
+  text-shadow: none;
+  border: 1px solid #555555;
+  border-radius: 0;
+  /*background: #aaaaaa; *//* old browsers */
+  /*background: -moz-linear-gradient(top, #aaaaaa 3%, #aaaaaa 4%, #aaaaaa 100%);*/
+  /*background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #aaaaaa), color-stop(4%, #aaaaaa), color-stop(100%, #aaaaaa));*/
+  background: #888888; /* old browsers */
+  background: -moz-linear-gradient(top, #888888 3%, #888888 4%, #888888 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #888888), color-stop(4%, #888888), color-stop(100%, #888888));
+}
+#webim_chat.webim_a_reutovbaniru input, #webim_chat.webim_a_reutovbaniru textarea, #webim_chat.webim_a_reutovbaniru select {
+    border-radius: 0;
+}
+
+#webim_chat.webim_a_nepalsalvecom #webim_first_question_panel .webim_description,
+#webim_chat.webim_a_nepalsalvecom #webim_offline_mode_panel .webim_description {
+    clear: left;
+}
+
+#webim_chat.webim_a_yarbankru,
+#webim_chat.webim_a_yarbankru .webim_inner_dialog {
+    border: none;
+
+    -webkit-box-shadow: 0 0 11px #888;
+    -moz-box-shadow: 0 0 11px #888;
+    box-shadow: 0 0 11px #888;
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+#webim_chat.webim_a_yarbankru * {
+    background: transparent;
+}
+
+#webim_chat.webim_a_yarbankru .webim_inner_dialog {
+    background: #fff;
+}
+
+#webim_chat.webim_a_yarbankru input,
+#webim_chat.webim_a_yarbankru textarea {
+    background: #fff;
+}
+
+#webim_chat.webim_a_yarbankru .webim_header {
+    border-radius: 0;
+    border: 1px solid #d74746;
+    border-width: 1px 0;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    text-transform: uppercase;
+    text-shadow: none;
+}
+
+#webim_chat.webim_a_yarbankru .webim_close {
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+#webim_chat.webim_a_yarbankru .webim_toggle_minimize {
+    padding-top: 10px;
+}
+
+#webim_chat.webim_a_yarbankru #webim_chat_panels {
+    padding: 0 15px 5px;
+}
+
+#webim_chat.webim_a_yarbankru #webim_chat_panels #webim_first_question_panel,
+#webim_chat.webim_a_yarbankru #webim_chat_panels #webim_department_selection_panel,
+#webim_chat.webim_a_yarbankru #webim_chat_panels #webim_offline_mode_panel {
+    padding-top: 15px;
+}
+
+#webim_chat.webim_a_yarbankru .webim_logo {
+    display: none;
+}
+
+#webim_chat.webim_a_yarbankru .webim_input_outer.webim_overlabel .webim_field_name {
+    color: #000;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 0 5px;
+    position: static;
+}
+
+#webim_chat.webim_a_yarbankru .webim_input_outer {
+    margin: 0;
+}
+
+#webim_chat.webim_a_yarbankru input,
+#webim_chat.webim_a_yarbankru textarea {
+    border: 1px solid #c1c6c8;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#webim_chat.webim_a_yarbankru input[type=text] {
+    height: 25px;
+}
+
+#webim_chat.webim_a_yarbankru textarea {
+    height: 75px;
+}
+
+#webim_chat.webim_a_yarbankru .webim_button_control {
+    border: 1px solid #d74746;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    padding: 7px 10px;
+    text-transform: uppercase;
+    text-shadow: none;
+}
+
+#webim_chat.webim_a_yarbankru #webim_sound_control_button {
+    display: inline-block;
+    padding: 5px;
+    background-color: rgb(206, 28, 27);
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+#webim_chat.webim_a_yarbankru #webim_sound_control_button img {
+    box-shadow: none;
+}
+
+#webim_chat.webim_a_yarbankru .webim_right_buttons {
+    float: left;
+    margin-left: 0;
+    position: static;
+    text-align: left;
+}
+
+#webim_chat.webim_a_yarbankru .webim_left_buttons {
+    float: right;
+}
+
+#webim_chat.webim_a_yarbankru .webim_right_buttons .btn_outer {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+#webim_chat.webim_a_yarbankru .poweredby {
+    padding-top: 14px;
+}
+
+#webim_chat.webim_a_yarbankru .poweredby,
+#webim_chat.webim_a_yarbankru .poweredby a {
+    clear: both;
+    color: #4b4b4b;
+    font-size: 10px;
+}
+
+#webim_chat.webim_a_yarbankru img.webim_avatar {
+    border: 1px solid #d8d8d8;
+    margin: 0 7px 0 0;
+    position: static;
+    float: left;
+}
+
+#webim_chat.webim_a_yarbankru .webim_user_bar {
+    text-align: left;
+    margin: 0;
+    padding: 15px 0 5px;
+}
+
+#webim_chat.webim_a_yarbankru .webim_operator_name_outer {
+    position: static;
+    text-align: left;
+}
+
+#webim_chat.webim_a_yarbankru .webim_user_bar .webim_nickname {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#webim_chat.webim_a_yarbankru #webim_show_rate_operator_dialog_link {
+    color: #ce1c1b;
+}
+
+#webim_chat.webim_a_yarbankru #webim_dialog_outer {
+    border: 1px solid #c1c6c8;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    left: 15px;
+    right: 15px;
+}
+
+#webim_chat.webim_a_yarbankru #webimm_dialogue {
+    font-size: 12px;
+    padding: 10px 10px 0;
+}
+
+#webim_chat.webim_a_yarbankru #webimm_dialogue li {
+    clear: both;
+    margin-bottom: 8px;
+}
+
+#webim_chat.webim_a_yarbankru #webimm_dialogue .webim_act_t {
+    float: left;
+}
+
+#webim_chat.webim_a_yarbankru #webimm_dialogue .webim_message_text {
+    display: block;
+    margin-left: 36px;
+}
+
+#webim_chat.webim_a_yarbankru #webimm_dialogue .webim_kind_visitor .webim_act_t .webim_author_name,
+#webim_chat.webim_a_yarbankru #webimm_dialogue .webim_kind_operator .webim_act_t .webim_author_name {
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+#webim_chat.webim_a_yarbankru #webim_bottom_panel {
+    left: 15px;
+    right: 15px;
+}
+
+#webim_chat.webim_a_yarbankru #webim_chat_message {
+    margin-right: 0;
+}
+
+#webim_chat.webim_a_yarbankru .webim_rate_operator_link {
+    color: #ce1c1b;
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+#webim_chat.webim_a_yarbankru .webim_inner_dialog_content {
+    margin: 10px 15px 5px;
+}
+
+#webim_chat.webim_a_playbetboxcom .webim_button_control,
+#webim_chat.webim_a_playbetboxcom .webim_header {
+    text-shadow: 1px 1px #8f3a00;
+}
+
+
+#webim_chat.webim_a_ltcompanycom,
+#webim_chat.webim_a_ltcompanycom .webim_inner_dialog {
+    background: none;
+    border: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#webim_chat.webim_a_ltcompanycom {
+    background: #413e3d;
+    background: rgba(65, 62, 61, 0.85);
+    padding: 5px 20px 10px;
+    border: 1px solid #696767;
+    border-style: solid none;
+    box-sizing: border-box;
+}
+
+#webim_chat.webim_a_ltcompanycom.webim-state-online {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_chat_panels {
+    padding: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_show_upload_file_offline_dialog_button,
+#webim_chat.webim_a_ltcompanycom .poweredby,
+#webim_chat.webim_a_ltcompanycom .webim_call_button,
+#webim_chat.webim_a_ltcompanycom .webim_avatar,
+#webim_chat.webim_a_ltcompanycom .webim_operator_name_outer,
+#webim_chat.webim_a_ltcompanycom #webim_online_mode_panel .webim_left_buttons,
+#webim_chat.webim_a_ltcompanycom #webim_online_mode_panel .webim_right_buttons,
+#webim_chat.webim_a_ltcompanycom .webim_logo {
+    display: none;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_header {
+    border-radius: 0;
+    height: 10px;
+    padding: 0;
+    z-index: 10010;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_toggle_minimize {
+    right: 20px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_close {
+    right: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_user_bar {
+    color: #fff;
+    display: block;
+    text-align: left;
+}
+
+#webim_chat.webim_a_ltcompanycom p {
+    background: none;
+    color: #fff;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_voice_call_link {
+    background: url("/webim/account-specific/ltcompanycom/images/skype.png") no-repeat 0 0;
+    color: #fff;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    padding: 3px 0 23px 40px;
+    text-decoration: none;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_voice_call_link:hover {
+    text-decoration: underline;
+}
+
+
+#webim_chat.webim_a_ltcompanycom .webim_description {
+    border-top: 1px solid #bdbdbd;
+    display: block;
+    padding: 10px 0 0 40px;
+    background: url("/webim/account-specific/ltcompanycom/images/contact-us.png") no-repeat 0 13px;
+    margin: 0 0 16px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_input_outer {
+    margin: 13px 0;
+}
+
+#webim_chat.webim_a_ltcompanycom input,
+#webim_chat.webim_a_ltcompanycom textarea {
+    width: 210px;
+    display: block;
+    background: #ddd;
+    box-shadow: 2px 2px 1px #7d7d7d inset;
+    font-size: 14px;
+    color: #222;
+    border: none;
+    margin: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_field_name,
+#webim_chat.webim_a_ltcompanycom .webim_input_outer input,
+#webim_chat.webim_a_ltcompanycom .webim_input_outer textarea {
+    font-size: 14px;
+    padding: 5px 7px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_input_outer.webim_overlabel .webim_field_name {
+    color: #999;
+    font-weight: normal;
+    top: 1px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_input_outer input {
+    height: 16px;
+    line-height: 16px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_input_outer textarea {
+    height: 100px;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_chat_buttons_box .webim_right_buttons .btn_outer {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_first_q_start_button,
+#webim_chat.webim_a_ltcompanycom #webim_send_offline_message_button {
+    display: inline-block;
+    width: 115px;
+    height: 39px;
+    background: #ebebeb;
+    filter: none;
+    text-align: center;
+    color: #222;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    line-height: 40px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    text-shadow: none;
+}
+
+#webim_chat.webim_a_ltcompanycom textarea#webim_chat_message_textarea {
+    background: #fff;
+    height: 20px;
+    line-height: 20px;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_dialog_outer {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_visitor {
+    margin-left: 50px;
+    text-align: right;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_operator {
+    margin-right: 50px;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_operator .webim_message_text {
+    background: #333;
+    color: #fff;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message .webim_message_text {
+    display: inline-block;
+    background: #ddd;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 0 5px;
+    word-wrap: break-word;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_operator .webim_message_text,
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_visitor .webim_message_text {
+    max-width: 85%;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message .webim_act_t {
+    background: transparent;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_operator .webim_act_t {
+    right: inherit;
+    left: 15px;
+}
+
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_operator .webim_act_t .webim_message_time,
+#webim_chat.webim_a_ltcompanycom #webimm_dialogue .webim_message.webim_kind_visitor .webim_act_t .webim_message_time {
+    float: right;
+}
+
+
+#webim_chat.webim_a_ltcompanycom #webim_bottom_panel {
+    left: 0;
+    right: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_chat_message {
+    margin-right: 0;
+}
+
+#webim_chat.webim_a_ltcompanycom #webim_online_mode_panel #webim_chat_message_textarea {
+    box-sizing: border-box;
+    padding: 4px 10px;
+    height: 28px;
+    width: 100%;
+}
+
+#webim_chat.webim_a_ltcompanycom .webim_input_outer .webim_error_message {
+    bottom: -8px;
+}
+
+#webim_chat.webim_a_bankliferu .webim_ready_to_answer_message {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing {
+    background: #f3f3f3;
+    border: 4px solid #76aa19;
+    border-top-color: #88ae1b;
+    border-right-color: #84b420;
+    border-left-color: #80b423;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_main_header {
+    color: transparent;
+    padding: 0;
+    text-shadow: none;
+    height: 24px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_main_header .webim_toggle_minimize {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_main_header .webim_close {
+    background: url('/webim/account-specific/bankliferu/images/close.png') no-repeat center center;
+    color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_chat_panels {
+    padding: 0;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar {
+    margin: 0;
+    text-align: left;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_logo {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar .webim_avatar {
+    border: none;
+    margin: 0 0 0 15px;
+    position: static;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar .webim_operator_name_outer {
+    box-sizing: content-box;
+    display: inline-block;
+    max-width: 60%;
+    padding-left: 30px;
+    position: static;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar .webim_operator_name_outer .webim_nickname {
+    color: #84b021;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar .webim_operator_name_outer .webim_nickname:after {
+    content: ':';
+    color: #84b021;
+    font-size: 16px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar #webim_show_rate_operator_dialog_link {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_user_bar .webim_operator_name_outer .webim_ready_to_answer_message {
+    color: #333;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer {
+    border: 1px solid #c1c1c1;
+    margin: 20px 0 0 0;
+    left: 0;
+    right: 0;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webimm_dialogue {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel {
+    background: #fff;
+    border: 1px solid #c1c1c1;
+    left: 0;
+    right: 0;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel #webim_chat_message textarea,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel .webim_visitor_info_outer,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel #webim_chat_message {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel #webim_chat_message {
+    margin-right: 100px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel #webim_chat_message textarea {
+    border: none;
+    padding: 13px 5px 13px 20px;
+    font-size: 16px;
+    height: 17px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .poweredby {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_chat_buttons_box {
+    background: transparent;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel .webim_chat_buttons_box {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_chat_buttons_box .webim_left_buttons {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_chat_buttons_box .webim_right_buttons {
+    margin: 0;
+    position: static;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_chat_buttons_box .webim_right_buttons > * {
+    display: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_chat_buttons_box .webim_right_buttons > .webim_right_btn_outer {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_send_chat_message_button,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_send_offline_message_button {
+    background: url('/webim/account-specific/bankliferu/images/send.png') no-repeat center center;
+    border: none;
+    box-shadow: none;
+    color: transparent;
+    padding: 0;
+    text-shadow: none;
+    margin: 0;
+    width: 66px;
+    height: 30px;
+    filter: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_send_chat_message_button:hover,
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_send_offline_message_button:hover {
+    filter: none;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer {
+    font-size: 16px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer .webim_message {
+    margin: 0 15px 15px 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer .webim_kind_operator .webim_author_name {
+    color: #84b021;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_dialog_outer .webim_message:last-child {
+    margin-bottom: 0;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webimm_dialogue {
+    top: 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing #webim_bottom_panel .webim_visitor_info_outer {
+    padding: 5px 90px 5px 15px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_input_outer {
+    margin: 0 0 5px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_input_outer input {
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0 5px;
+    height: 24px;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_input_outer input,
+#webim_chat.webim_a_bankliferu.webim_l_landing .webim_input_outer textarea {
+    box-sizing: border-box;
+}
+
+#webim_chat.webim_a_bankliferu.webim_l_landing p {
+    background: transparent;
+}
