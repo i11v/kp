@@ -275,8 +275,8 @@
       e.preventDefault();
     });
 
-  api.init(1272).then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); }).then(function (res) {
-    console.log(res);
-  });
+  //api.init(1272).then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); }).then(function (res) {
+  //  console.log(res);
+  //});
 
 }(window, document, jQuery, SAILPLAY, vow.Promise));
