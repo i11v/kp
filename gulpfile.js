@@ -33,6 +33,7 @@ gulp.task('default', function () {
   browserSync({
     notify: false,
     logPrefix: 'WSK',
+    open: false,
     server: ['.']
   });
 

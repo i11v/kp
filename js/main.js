@@ -1,5 +1,5 @@
-/* global SAILPLAY, SP, USER_EMAIL */
-;(function (window, document, $, sailplay, Promise, userEmail) {
+/* global SAILPLAY */
+;(function (window, document, $, sailplay, Promise) {
   /**
    * Today
    * @const
@@ -86,92 +86,128 @@
         variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
         answer: 'Понедельник'
       }
+    ],
+    '322015': [
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Вторник', 'Среда', 'Четверг'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Пятница', 'Понедельник', 'Суббота', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Среда', 'Вторник', 'Понедельник', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      }
+    ],
+    '422015': [
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Вторник', 'Среда', 'Четверг'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Пятница', 'Понедельник', 'Суббота', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Среда', 'Вторник', 'Понедельник', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      }
     ]
   };
 
   /**
-   * Answer template
-   * @param {number} num
-   * @param {string} pic
-   * @param {string} question
-   * @returns {string}
-   */
-  var answerTmpl = function (num, pic, question) {
-    var tpl = '<div class="test-bl__item-' + (num + 1) + '">' +
-                  '<div class="test-bl__img" style="background-image: url(' + pic + ');"></div>' +
-                  '<div class="test-bl__text">' +
-                      '<h1 class="test-bl__text-title">' + question + '</h1>' +
-                      '<div class="test-bl__text-descr">' +
-                          'Участвуйте в викторине от KupiVip. Каждый день будут появляться новые вопросы на интересные темы.<br/>' +
-                          'За правильные ответы Вы будете получать 10 баллов' +
-                      '</div>' +
-                  '</div>' +
-              '</div>';
-
-    return tpl;
-  };
-
-  /**
    * Cookie manager
-   * @type {{write, read, erase}}
    */
   var cookie = (function () {
-    var _write = function (name, value, days) {
-      var expires = ''
-        , date;
-
-      if (days) {
-        date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-      }
-
-      document.cookie = name + "=" + value + expires + "; path=/";
-    };
-
-    var _read = function (name) {
-      var nameEQ = name + "="
-        , cookiesArray = document.cookie.split(';')
-        , i, cookie;
-
-      for (i = 0; i < cookiesArray.length; i++) {
-        cookie = cookiesArray[i];
-
-        while (cookie.charAt(0) == ' ') {
-          cookie = cookie.substring(1, cookie.length);
-        }
-
-        if (cookie.indexOf(nameEQ) == 0) {
-          return cookie.substring(nameEQ.length, cookie.length);
-        }
-      }
-
-      return null;
-    };
-
-    var _erase = function (name) {
-      _write(name, "", -1);
-    };
-
     return {
-      write: _write,
-      read: _read,
-      erase: _erase
+      write: function (name, value, days) {
+        var expires = ''
+          , date;
+
+        if (days) {
+          date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toGMTString();
+        }
+
+        document.cookie = name + "=" + value + expires + "; path=/";
+      },
+
+      read: function (name) {
+        var nameEQ = name + "="
+          , cookiesArray = document.cookie.split(';')
+          , i, cookie;
+
+        for (i = 0; i < cookiesArray.length; i++) {
+          cookie = cookiesArray[i];
+
+          while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1, cookie.length);
+          }
+
+          if (cookie.indexOf(nameEQ) == 0) {
+            return cookie.substring(nameEQ.length, cookie.length);
+          }
+        }
+
+        return null;
+      },
+
+      erase: function (name) {
+        this.write(name, "", -1);
+      }
     };
   }());
 
   /**
    * SailPlay API
-   * @type {{init, login, userInfo, userHistory, setTags, getTags}}
    */
   var api = (function () {
-    var partnerId, authHash, instance, user;
+    var partnerId, authHash;
 
     return {
       init: function (id) {
         partnerId = id;
 
-        return instance ? instance : new Promise(function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
           sailplay.send('init', { partner_id: id });
 
           sailplay.on('init.success', resolve);
@@ -182,7 +218,7 @@
       login: function (hash) {
         authHash = hash;
 
-        return user ? user : new Promise(function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
           sailplay.send('login', hash);
 
           sailplay.on('login.success', resolve);
@@ -191,52 +227,47 @@
       },
 
       userInfo: function () {
-        return instance.then(user).then(function () {
-          return new Promise(function (resolve, reject) {
-            sailplay.send('load.user.info');
+        return new Promise(function (resolve, reject) {
+          sailplay.send('load.user.info');
 
-            sailplay.on('load.user.info.success', resolve);
-            sailplay.on('load.user.info.error', reject);
-          });
-        })
+          sailplay.on('load.user.info.success', resolve);
+          sailplay.on('load.user.info.error', reject);
+        });
       },
 
       userHistory: function () {
-        return instance.then(user).then(function () {
-          return new Promise(function (resolve, reject) {
-            sailplay.send('load.user.history');
+        return new Promise(function (resolve, reject) {
+          sailplay.send('load.user.history');
 
-            sailplay.on('load.user.history.success', resolve);
-            sailplay.on('load.user.history.error', reject);
-          });
+          sailplay.on('load.user.history.success', resolve);
+          sailplay.on('load.user.history.error', reject);
         });
       },
 
       setTags: function (tags) {
-        return instance.then(user).then(function () {
-          return new Promise(function (resolve, reject) {
-            sailplay.send('tags.add', tags);
+        return new Promise(function (resolve, reject) {
+          sailplay.send('tags.add', tags);
 
-            sailplay.on('tags.add.success', resolve);
-            sailplay.on('tags.add.auth.error', reject);
-            sailplay.on('tags.add.error', reject);
-          });
+          sailplay.on('tags.add.success', resolve);
+          sailplay.on('tags.add.auth.error', reject);
+          sailplay.on('tags.add.error', reject);
         });
       },
 
       loadLeaderboard: function () {
-        return instance.then(user).then(function () {
-          return new Promise(function (resolve, reject) {
-            sailplay.send('leaderboard.load');
+        return new Promise(function (resolve, reject) {
+          sailplay.send('leaderboard.load');
 
-            sailplay.on('leaderboard.load.success', resolve);
-            sailplay.on('leaderboard.load.error', reject);
-          });
+          sailplay.on('leaderboard.load.success', resolve);
+          sailplay.on('leaderboard.load.error', reject);
         });
       }
     }
   }());
 
+  /**
+   * Quiz
+   */
   var quiz = (function () {
     var todayQuiz = QUIZ_DATA[TODAY]
       , answersCount = todayQuiz.length
@@ -244,83 +275,103 @@
       , $testRoot = $('[data-test-root]')
       , step = 2;
 
-    var _render = function () {
-      var questionsHtml = ''
-        , answerIdx = 0;
+    /**
+     * Answer template
+     * @param {number} num
+     * @param {string} pic
+     * @param {string} question
+     * @returns {string}
+     */
+    var answerTmpl = function (num, pic, question) {
+      var tpl = '<div class="test-bl__item-' + (num + 1) + '">' +
+                    '<div class="test-bl__img" style="background-image: url(' + pic + ');"></div>' +
+                    '<div class="test-bl__text">' +
+                        '<h1 class="test-bl__text-title">' + question + '</h1>' +
+                        '<div class="test-bl__text-descr">' +
+                            'Участвуйте в викторине от KupiVip. Каждый день будут появляться новые вопросы на интересные темы.<br/>' +
+                            'За правильные ответы Вы будете получать 10 баллов' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
 
-      for (; answerIdx < answersCount; answerIdx++) {
-        questionsHtml += answerTmpl(answerIdx + 1, todayQuiz[answerIdx].pic, todayQuiz[answerIdx].question);
-      }
-
-      $(questionsHtml).insertAfter('[data-test-cover]');
+      return tpl;
     };
 
-    var _setAnswers = function (idx) {
-      var variants = todayQuiz[idx].variants;
-
-      $('.test-btn.first').text(variants[0]);
-      $('.test-btn.second').text(variants[1]);
-      $('.test-btn.third').text(variants[2]);
-      $('.test-btn.fourth').text(variants[3]);
-    };
-
-    var _start = function () {
-      $testRoot
-        .removeClass('show-test-1')
-        .addClass('show-test-2')
-        .addClass('show-buttons');
-
-      $('.type-nav-1').addClass('complete');
-      _setAnswers(0);
-      api.setTags(['Начал тест'])
-    };
-
-    var _next = function (answer) {
-      var index = step - 2;
-
-      $testRoot
-        .removeClass('show-test-' + step)
-        .removeClass('show-buttons');
-
-      if (todayQuiz[index].answer === answer) {
-        correctAnswersCount++;
-        api.setTags(['Правильно ответил на вопрос']);
-      }
-
-      if (step > answersCount) {
-        cookie.write('quiz', correctAnswersCount, 1);
-        api.setTags(['Прошёл тест']);
-
-        _finish(correctAnswersCount);
-      } else {
-        $('.type-nav-' + (step)).addClass('complete');
-        _setAnswers(step - 1);
-        $testRoot.addClass('show-test-' + ++step);
-      }
-
-      setTimeout(function () {
-        $testRoot.addClass('show-buttons');
-      }, 400);
-    };
-
-    var _finish = function (count) {
-      $('[data-correct-anwers-count]').text(count);
-      $('[data-plural-count]').text(count === 1 ? 'вопрос' : count > 4 ? 'вопросов' :  'вопроса');
-
-      $testRoot
-        .removeClass('show-test-1')
-        .addClass('show-test-7');
-    };
 
     return {
-      render: _render,
-      setAnswers: _setAnswers,
-      start: _start,
-      next: _next,
-      finish: _finish
+      render: function () {
+        var questionsHtml = ''
+          , answerIdx = 0;
+
+        for (; answerIdx < answersCount; answerIdx++) {
+          questionsHtml += answerTmpl(answerIdx + 1, todayQuiz[answerIdx].pic, todayQuiz[answerIdx].question);
+        }
+
+        $(questionsHtml).insertAfter('[data-test-cover]');
+      },
+
+      setAnswers: function (idx) {
+        var variants = todayQuiz[idx].variants;
+
+        $('.test-btn.first').text(variants[0]);
+        $('.test-btn.second').text(variants[1]);
+        $('.test-btn.third').text(variants[2]);
+        $('.test-btn.fourth').text(variants[3]);
+      },
+
+      start: function () {
+        $testRoot
+          .removeClass('show-test-1')
+          .addClass('show-test-2')
+          .addClass('show-buttons');
+
+        $('.type-nav-1').addClass('complete');
+        this.setAnswers(0);
+        api.setTags(['Начал тест'])
+      },
+
+      next: function (answer) {
+        var index = step - 2;
+
+        $testRoot
+          .removeClass('show-test-' + step)
+          .removeClass('show-buttons');
+
+        if (todayQuiz[index].answer === answer) {
+          correctAnswersCount++;
+          api.setTags(['Правильно ответил на вопрос']);
+        }
+
+        if (step > answersCount) {
+          cookie.write('quiz', correctAnswersCount, 1);
+          api.setTags(['Прошёл тест']);
+
+          this.finish(correctAnswersCount);
+        } else {
+          $('.type-nav-' + (step)).addClass('complete');
+          this.setAnswers(step - 1);
+          $testRoot.addClass('show-test-' + ++step);
+        }
+
+        setTimeout(function () {
+          $testRoot.addClass('show-buttons');
+        }, 400);
+      },
+
+      finish: function (count) {
+        $('[data-correct-anwers-count]').text(count);
+        $('[data-plural-count]').text(count === 1 ? 'вопрос' : count > 4 ? 'вопросов' :  'вопроса');
+
+        $testRoot
+          .removeClass('show-test-1')
+          .addClass('show-test-7');
+      }
     }
   }());
 
+  /**
+   * Fortune cookie
+   */
   var fortune = (function () {
     return {
       show: function () {
@@ -338,6 +389,36 @@
         cookie.write('fortune', 'read', 1);
       }
     };
+  }());
+
+  var leaderboard = (function () {
+    var entry = function (place, name, points) {
+      var tpl = '<div class="lider-item">' +
+                    '<div class="lider-item__number">' + place + '</div>' +
+                    '<div class="lider-item__name">' + name + '</div>' +
+                    '<div class="lider-item__points">' + points + '</div>' +
+                '</div>';
+
+      return tpl;
+    };
+
+    var table = function (data) {
+      return data.slice(0, 8).map(function (item) {
+        return entry(item.rank, item.full_name, item.score)
+      }).join('');
+    };
+
+    return {
+      render: function (data) {
+        var members = data.members.members
+          , board = [members.slice(0, 8), members.slice(8, 16), members.slice(16, 24), members.slice(24, 32)];
+
+        $('[data-leaderboard-first][data-leaderboard-left]').html(table(members.slice(0, 8)));
+        $('[data-leaderboard-first][data-leaderboard-right]').html(table(members.slice(8, 16)));
+        $('[data-leaderboard-second][data-leaderboard-left]').html(table(members.slice(16, 24)));
+        $('[data-leaderboard-second][data-leaderboard-right]').html(table(members.slice(24, 32)));
+      }
+    }
   }());
 
   var $body = $('body');
@@ -559,8 +640,13 @@
     });
 
   api.init(1272)
-    .then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); })
-    .then(function (res) { console.log(res); })
+    .then(function (res) {
+      return api.login('913396569ffe1b5225df6417adfa095e3c6d5819').then(function (res) {
+        console.log(res);
+      });
+    })
     .then(api.loadLeaderboard)
-    .then(function (res) { console.log(res); });
-}(window, document, window.jQuery, window.SAILPLAY, vow.Promise, window.USER_EMAIL));
+    .then(leaderboard.render)
+    .catch(console.error.bind(console));
+
+}(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
