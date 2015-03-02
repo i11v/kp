@@ -213,19 +213,26 @@
       },
 
       setTags: function (tags) {
-        window.SP.tags({
-          action: 'add',
-          tags: tags,
-          email: userEmail
-        })
+        return instance.then(user).then(function () {
+          return new Promise(function (resolve, reject) {
+            sailplay.send('tags.add', tags);
+
+            sailplay.on('tags.add.success', resolve);
+            sailplay.on('tags.add.auth.error', reject);
+            sailplay.on('tags.add.error', reject);
+          });
+        });
       },
 
-      getTags: function (cb) {
-        window.SP.tags({
-          action: 'list',
-          email: userEmail,
-          callback: cb
-        })
+      loadLeaderboard: function () {
+        return instance.then(user).then(function () {
+          return new Promise(function (resolve, reject) {
+            sailplay.send('leaderboard.load');
+
+            sailplay.on('leaderboard.load.success', resolve);
+            sailplay.on('leaderboard.load.error', reject);
+          });
+        });
       }
     }
   }());
@@ -551,8 +558,9 @@
       quiz.next($(this).text());
     });
 
-  //api.init(1272).then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); }).then(function (res) {
-  //  console.log(res);
-  //});
-
+  api.init(1272)
+    .then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); })
+    .then(function (res) { console.log(res); })
+    .then(api.loadLeaderboard)
+    .then(function (res) { console.log(res); });
 }(window, document, window.jQuery, window.SAILPLAY, vow.Promise, window.USER_EMAIL));
