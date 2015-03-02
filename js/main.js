@@ -6,12 +6,109 @@
    */
   var TODAY = (function (date) { return [date.getDate(), date.getMonth(), date.getFullYear()].join(''); }(new Date()));
 
+  /**
+   * Fortune data
+   * @type {Object}
+   */
   var FORTUNE_DATA = {
     '122015': 'У вас на этой неделе все будет хорошо! ;)',
     '222015': '2 марта у вас все будет хорошо! ;)',
     '322015': '3 марта у вас все будет хорошо! ;)',
     '422015': '4 марта у вас все будет хорошо! ;)',
     '522015': '5 марта у вас все будет хорошо! ;)'
+  };
+
+  /**
+   * Quiz data
+   * @type {Object}
+   */
+  var QUIZ_DATA = {
+    '122015': [
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Что изображено на фото?',
+        variants: ['Броги', 'Сникерсы', 'Челси', 'Дерби'],
+        answer: 'Броги'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Что изображено на фото?',
+        variants: ['Броги', 'Сникерсы', 'Челси', 'Дерби'],
+        answer: 'Сникерсы'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Что изображено на фото?',
+        variants: ['Броги', 'Сникерсы', 'Челси', 'Дерби'],
+        answer: 'Челси'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Что изображено на фото?',
+        variants: ['Броги', 'Сникерсы', 'Челси', 'Дерби'],
+        answer: 'Дерби'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Что изображено на фото?',
+        variants: ['Броги', 'Сникерсы', 'Челси', 'Дерби'],
+        answer: 'Дерби'
+      }
+    ],
+    '222015': [
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Вторник', 'Среда', 'Четверг'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Пятница', 'Понедельник', 'Суббота', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Среда', 'Вторник', 'Понедельник', 'Воскресенье'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      },
+      {
+        pic: 'img/slide4/image-2.png',
+        question: 'Какой сегодня день недели?',
+        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
+        answer: 'Понедельник'
+      }
+    ]
+  };
+
+  /**
+   * Answer template
+   * @param {number} num
+   * @param {string} pic
+   * @param {string} question
+   * @returns {string}
+   */
+  var answerTmpl = function (num, pic, question) {
+    var tpl = '<div class="test-bl__item-' + (num + 1) + '">' +
+                  '<div class="test-bl__img" style="background-image: url(' + pic + ');"></div>' +
+                  '<div class="test-bl__text">' +
+                      '<h1 class="test-bl__text-title">' + question + '</h1>' +
+                      '<div class="test-bl__text-descr">' +
+                          'Участвуйте в викторине от KupiVip. Каждый день будут появляться новые вопросы на интересные темы.<br/>' +
+                          'За правильные ответы Вы будете получать 10 баллов' +
+                      '</div>' +
+                  '</div>' +
+              '</div>';
+
+    return tpl;
   };
 
   /**
@@ -65,7 +162,6 @@
 
   /**
    * SailPlay API
-   *
    * @type {{init, login, userInfo, userHistory, setTags, getTags}}
    */
   var api = (function () {
@@ -135,39 +231,86 @@
   }());
 
   var quiz = (function () {
-    var data = {
-      '122015': {
-        '1': {
-          pic: 'img/slide4/image-2.png',
-          question: 'ЧТО ИЗОБРАЖЕНО НА ФОТО?',
-          variants: ['Броги', 'Сникерсы', 'Челси', 'Челси'],
-          answer: 'Броги'
-        },
-        '2': {
-          pic: 'img/slide4/image-2.png',
-          question: 'ЧТО ИЗОБРАЖЕНО НА ФОТО?',
-          variants: ['Броги', 'Сникерсы', 'Челси', 'Челси'],
-          answer: 'Сникерсы'
-        },
-        '3': {
-          pic: 'img/slide4/image-2.png',
-          question: 'ЧТО ИЗОБРАЖЕНО НА ФОТО?',
-          variants: ['Броги', 'Сникерсы', 'Челси', 'Челси'],
-          answer: 'Челси'
-        },
-        '4': {
-          pic: 'img/slide4/image-2.png',
-          question: 'ЧТО ИЗОБРАЖЕНО НА ФОТО?',
-          variants: ['Броги', 'Сникерсы', 'Челси', 'Челси'],
-          answer: 'Дерби'
-        }
+    var todayQuiz = QUIZ_DATA[TODAY]
+      , answersCount = todayQuiz.length
+      , correctAnswersCount = 0
+      , $testRoot = $('[data-test-root]')
+      , step = 2;
+
+    var _render = function () {
+      var questionsHtml = ''
+        , answerIdx = 0;
+
+      for (; answerIdx < answersCount; answerIdx++) {
+        questionsHtml += answerTmpl(answerIdx + 1, todayQuiz[answerIdx].pic, todayQuiz[answerIdx].question);
       }
+
+      $(questionsHtml).insertAfter('[data-test-cover]');
+    };
+
+    var _setAnswers = function (idx) {
+      var variants = todayQuiz[idx].variants;
+
+      $('.test-btn.first').text(variants[0]);
+      $('.test-btn.second').text(variants[1]);
+      $('.test-btn.third').text(variants[2]);
+      $('.test-btn.fourth').text(variants[3]);
+    };
+
+    var _start = function () {
+      $testRoot
+        .removeClass('show-test-1')
+        .addClass('show-test-2')
+        .addClass('show-buttons');
+
+      $('.type-nav-1').addClass('complete');
+      _setAnswers(0);
+      api.setTags(['Начал тест'])
+    };
+
+    var _next = function (answer) {
+      var index = step - 2;
+
+      $testRoot
+        .removeClass('show-test-' + step)
+        .removeClass('show-buttons');
+
+      if (todayQuiz[index].answer === answer) {
+        correctAnswersCount++;
+        api.setTags(['Правильно ответил на вопрос']);
+      }
+
+      if (step > answersCount) {
+        cookie.write('quiz', correctAnswersCount, 1);
+        api.setTags(['Прошёл тест']);
+
+        _finish(correctAnswersCount);
+      } else {
+        $('.type-nav-' + (step)).addClass('complete');
+        _setAnswers(step - 1);
+        $testRoot.addClass('show-test-' + ++step);
+      }
+
+      setTimeout(function () {
+        $testRoot.addClass('show-buttons');
+      }, 400);
+    };
+
+    var _finish = function (count) {
+      $('[data-correct-anwers-count]').text(count);
+      $('[data-plural-count]').text(count === 1 ? 'вопрос' : count > 4 ? 'вопросов' :  'вопроса');
+
+      $testRoot
+        .removeClass('show-test-1')
+        .addClass('show-test-7');
     };
 
     return {
-      init: function () {
-        // Init
-      }
+      render: _render,
+      setAnswers: _setAnswers,
+      start: _start,
+      next: _next,
+      finish: _finish
     }
   }());
 
@@ -387,24 +530,25 @@
   });
 
   // for 4 slide
-  var step = 1
-    , $testRoot = $('[data-test-root]');
+  var quizCookie = cookie.read('quiz');
+
+  if (quizCookie !== null) {
+    quiz.finish(parseInt(quizCookie));
+  } else {
+    quiz.render();
+  }
+
+  $body.on('click', '[data-test-start]', function (e) {
+    e.preventDefault();
+
+    quiz.start();
+  });
 
   $body
-    .on('click', '[data-test-start], [data-test-btn]', function(e){
-      $testRoot
-        .removeClass('show-test-' + step)
-        .removeClass('show-buttons');
-
-      step += 1;
-      $testRoot.addClass('show-test-' + step);
-      $('.type-nav-' + (+step-2)).addClass('complete');
-
-      setTimeout( function(){
-        $testRoot.addClass('show-buttons');
-      }, 400);
-
+    .on('click', '[data-test-btn]', function (e) {
       e.preventDefault();
+
+      quiz.next($(this).text());
     });
 
   //api.init(1272).then(function () { return api.login('b07b23c438a21edb81da09ce58dfcab56a8d056b'); }).then(function (res) {
