@@ -6,6 +6,23 @@
    */
   var TODAY = (function (date) { return [date.getDate(), date.getMonth(), date.getFullYear()].join(''); }(new Date()));
 
+  function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1)
+      , sURLVariables = sPageURL.split('&')
+      , sParameterName, i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1];
+      }
+    }
+  }
+
+  var PARTNER_ID = getUrlParameter('partner_id');
+  var AUTH_HASH = getUrlParameter('auth_hash');
+
   /**
    * Fortune data
    * @type {Object}
@@ -152,6 +169,49 @@
       }
     ]
   };
+
+  /**
+   * User info
+   */
+  var userInfo = (function () {
+    var historyItemTmpl = function (entry) {
+      var tpl = '<div class="history-bl-item">' +
+                    '<div class="his-item-text">' + entry.name + '</div>' +
+                    '<div class="his-item-date">' + entry.date + '</div>' +
+                    '<div class="his-item-value">' + (entry.points > 0 ? ('+' + entry.points) : entry.points) + '</div>' +
+                '</div>';
+
+      return tpl;
+    };
+
+    return {
+      show: function (data) {
+        var user = {
+              name: data[0].user.name,
+              points: data[0].user_points.total
+            }
+          , history = data[1].map(function (item) {
+              var date = new Date(item.action_date)
+                , day = date.getDate()
+                , month = date.getMonth() + 1
+                , entry = {};
+
+              entry.date = (day < 10 ? '0' + day : day) + '.' + (month < 10 ? '0' + month : month) + '.' + date.getFullYear();
+              entry.name = entry.name ? entry.name : 'Начисление баллов';
+              entry.points = item.points_delta;
+
+              return entry;
+            });
+
+        console.log(data[0]);
+
+        $('[data-history-list]').html(history.map(function (item) { return historyItemTmpl(item); }).join(''));
+        $('[data-user-name]').text(user.name);
+        $('[data-total-points]').text(user.points);
+        $('[data-root-welcome]').addClass('show-slide-1-complete');
+      }
+    }
+  }());
 
   /**
    * Cookie manager
@@ -639,14 +699,16 @@
       quiz.next($(this).text());
     });
 
-  api.init(1272)
-    .then(function (res) {
-      return api.login('913396569ffe1b5225df6417adfa095e3c6d5819').then(function (res) {
-        console.log(res);
-      });
-    })
-    .then(api.loadLeaderboard)
-    .then(leaderboard.render)
-    .catch(console.error.bind(console));
+  if (!!PARTNER_ID && !!AUTH_HASH) {
+    api.init(PARTNER_ID)
+      .then(function (res) {
+        return api.login(AUTH_HASH).then(function () {
+          Promise.all([api.userInfo(), api.userHistory()]).then(userInfo.show);
+        });
+      })
+      .then(api.loadLeaderboard)
+      .then(leaderboard.render)
+      .catch(console.error.bind(console));
+  }
 
 }(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
