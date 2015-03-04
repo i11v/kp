@@ -1,5 +1,5 @@
 /* global SAILPLAY */
-;(function (window, document, $, sailplay, Promise) {
+;(function (window, document, $, sailplay, Promise, PM) {
   /**
    * Today
    * @const
@@ -22,6 +22,8 @@
 
   var PARTNER_ID = getUrlParameter('partner_id');
   var AUTH_HASH = getUrlParameter('auth_hash');
+
+  //PM.addAuthorizedUrl(['http://localhost:3000', 'http://kupivip.ru']);
 
   /**
    * Fortune data
@@ -558,11 +560,15 @@
   var $welcome = $('[data-root-welcome]');
 
   $body
-    .on('click', '[data-reg-next]', function(e){
-      $welcome
-        .addClass('show-slide-1-complete');
-
+    .on('click', '[data-auth]', function (e) {
       e.preventDefault();
+
+      PM.postMessage('http://kupivip.ru', 'auth', 'SAILPLAY_AUTH');
+    })
+    .on('click', '[data-reg]', function (e) {
+      e.preventDefault();
+
+      PM.postMessage('http://kupivip.ru', 'reg', 'SAILPLAY_REG');
     })
     .on('click', '[data-btn-history]', function(e){
       $welcome
@@ -711,4 +717,4 @@
       .catch(console.error.bind(console));
   }
 
-}(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
+}(window, document, window.jQuery, window.SAILPLAY, vow.Promise, PM));
