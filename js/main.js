@@ -641,6 +641,15 @@
     create: false
   });
 
+  // Disable slides scrolling on history block mouse over
+  $('.history-bl')
+    .hover(
+    function () {
+      $.fn.fullpage.setAllowScrolling(false);
+    },
+    function () {
+      $.fn.fullpage.setAllowScrolling(true);
+    });
 
   // for 2 slide
   var $rootGift = $('[data-gift-root]')
