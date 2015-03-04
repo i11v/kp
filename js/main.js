@@ -23,7 +23,12 @@
   var PARTNER_ID = getUrlParameter('partner_id');
   var AUTH_HASH = getUrlParameter('auth_hash');
 
-  //PM.addAuthorizedUrl(['http://localhost:3000', 'http://kupivip.ru']);
+  PM.addAuthorizedUrl([
+    'http://localhost:3000',
+    'http://my-kupivip.ru:8080',
+    'http://kupivip.ru',
+    'http://sailplay.ru'
+  ]);
 
   /**
    * Fortune data
