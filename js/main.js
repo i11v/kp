@@ -23,12 +23,11 @@
   var PARTNER_ID = getUrlParameter('partner_id');
   var AUTH_HASH = getUrlParameter('auth_hash');
 
-  PM.addAuthorizedUrl([
-    'http://localhost:3000',
-    'http://my-kupivip.ru:8080',
-    'http://kupivip.ru',
-    'http://sailplay.ru'
-  ]);
+  var socket = new easyXDM.Socket({
+    onMessage: function (message, origin) {
+      console.log(message, origin);
+    }
+  });
 
   /**
    * Fortune data
@@ -568,12 +567,12 @@
     .on('click', '[data-auth]', function (e) {
       e.preventDefault();
 
-      PM.postMessage('http://my-kupivip.ru:8080', 'auth', 'SAILPLAY_AUTH');
+      socket.postMessage('auth');
     })
     .on('click', '[data-reg]', function (e) {
       e.preventDefault();
 
-      PM.postMessage('http://my-kupivip.ru:8080', 'reg', 'SAILPLAY_REG');
+      socket.postMessage('reg');
     })
     .on('click', '[data-btn-history]', function(e){
       $welcome
@@ -722,4 +721,4 @@
       .catch(console.error.bind(console));
   }
 
-}(window, document, window.jQuery, window.SAILPLAY, vow.Promise, PM));
+}(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
