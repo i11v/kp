@@ -24,9 +24,7 @@
   var AUTH_HASH = getUrlParameter('auth_hash');
 
   var socket = new easyXDM.Socket({
-    onMessage: function (message, origin) {
-      console.log(message, origin);
-    }
+    remote: 'http://my-kupivip.ru:8080'
   });
 
   /**
