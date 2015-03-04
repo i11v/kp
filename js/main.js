@@ -563,12 +563,12 @@
     .on('click', '[data-auth]', function (e) {
       e.preventDefault();
 
-      PM.postMessage('http://kupivip.ru', 'auth', 'SAILPLAY_AUTH');
+      PM.postMessage('http://my-kupivip.ru:8080', 'auth', 'SAILPLAY_AUTH');
     })
     .on('click', '[data-reg]', function (e) {
       e.preventDefault();
 
-      PM.postMessage('http://kupivip.ru', 'reg', 'SAILPLAY_REG');
+      PM.postMessage('http://my-kupivip.ru:8080', 'reg', 'SAILPLAY_REG');
     })
     .on('click', '[data-btn-history]', function(e){
       $welcome
