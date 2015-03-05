@@ -22,10 +22,11 @@
 
   var PARTNER_ID = getUrlParameter('partner_id');
   var AUTH_HASH = getUrlParameter('auth_hash');
+  var PARENT_DOMAIN = 'http://test.kupivip.ru/biq';
 
-  var socket = new easyXDM.Socket({
-    remote: 'http://test.kupivip.ru/biq'
-  });
+  //var socket = new easyXDM.Socket({
+  //  remote: 'http://test.kupivip.ru/biq'
+  //});
 
   /**
    * Fortune data
@@ -499,12 +500,12 @@
     .on('click', '[data-auth]', function (e) {
       e.preventDefault();
 
-      socket.postMessage('auth');
+      window.parent.postMessage('auth', PARENT_DOMAIN);
     })
     .on('click', '[data-reg]', function (e) {
       e.preventDefault();
 
-      socket.postMessage('reg');
+      window.parent.postMessage('reg', PARENT_DOMAIN);
     })
     .on('click', '[data-btn-history]', function(e){
       $welcome
