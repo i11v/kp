@@ -127,7 +127,8 @@
       show: function (data) {
         var user = {
               name: data[0].user.name,
-              points: data[0].user_points.total
+              totalPoints: data[0].user_points.total,
+              unconfirmedPoints: data[0].user_points.unconfirmed
             }
           , history = data[1].map(function (item) {
               var date = new Date(item.action_date)
@@ -144,9 +145,16 @@
 
         console.log(data[0].user_points);
 
+        if (!user.unconfirmedPoints) {
+          $('[data-unconfirmed-points]').hide();
+          $('[data-unconfirmed-help]').hide();
+        } else {
+          $('[data-unconfirmed-points]').text(user.unconfirmedPoints);
+        }
+
         $('[data-history-list]').html(history.map(function (item) { return historyItemTmpl(item); }).join(''));
         $('[data-user-name]').text(user.name);
-        $('[data-total-points]').text(user.points);
+        $('[data-total-points]').text(user.totalPoints);
         $('[data-root-welcome]').addClass('show-slide-1-complete');
       }
     }
