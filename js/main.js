@@ -1,5 +1,5 @@
 /* global SAILPLAY */
-;(function (window, document, $, sailplay, Promise, PM) {
+;(function (window, document, $, sailplay, Promise) {
   /**
    * Today
    * @const
@@ -23,10 +23,6 @@
   var PARTNER_ID = getUrlParameter('partner_id');
   var AUTH_HASH = getUrlParameter('auth_hash');
   var PARENT_DOMAIN = 'http://test.kupivip.ru/biq';
-
-  //var socket = new easyXDM.Socket({
-  //  remote: 'http://test.kupivip.ru/biq'
-  //});
 
   /**
    * Fortune data
@@ -633,8 +629,12 @@
   $body.on('click', '[data-cookie]', function (e) {
     e.preventDefault();
 
-    fortune.show();
-    fortune.read();
+    if (!!PARTNER_ID && !!AUTH_HASH) {
+      fortune.show();
+      fortune.read();
+    } else {
+      window.parent.postMessage('auth', PARENT_DOMAIN);
+    }
   });
 
   // for 4 slide
@@ -649,7 +649,11 @@
   $body.on('click', '[data-test-start]', function (e) {
     e.preventDefault();
 
-    quiz.start();
+    if (!!PARTNER_ID && !!AUTH_HASH) {
+      quiz.start();
+    } else {
+      window.parent.postMessage('auth', PARENT_DOMAIN);
+    }
   });
 
   $body
