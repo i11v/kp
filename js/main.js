@@ -20,90 +20,9 @@
     }
   }
 
-  var PARTNER_ID = getUrlParameter('partner_id');
-  var AUTH_HASH = getUrlParameter('auth_hash');
+  var PARTNER_ID = getUrlParameter('partner_id') || 0;
+  var AUTH_HASH = getUrlParameter('auth_hash') || '';
   var PARENT_DOMAIN = 'http://test.kupivip.ru/biq';
-
-  /**
-   * Fortune data
-   * @type {Object}
-   */
-  var FORTUNE_DATA = {
-    '522015': '4 марта у вас все будет хорошо! ;)',
-    '622015': '4 марта у вас все будет хорошо! ;)',
-    '722015': '5 марта у вас все будет хорошо! ;)'
-  };
-
-  /**
-   * Quiz data
-   * @type {Object}
-   */
-  var QUIZ_DATA = {
-    '522015': [
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Вторник', 'Среда', 'Четверг'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Пятница', 'Понедельник', 'Суббота', 'Воскресенье'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Среда', 'Вторник', 'Понедельник', 'Воскресенье'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
-        answer: 'Понедельник'
-      }
-    ],
-    '622015': [
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Вторник', 'Среда', 'Четверг'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Пятница', 'Понедельник', 'Суббота', 'Воскресенье'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Среда', 'Вторник', 'Понедельник', 'Воскресенье'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
-        answer: 'Понедельник'
-      },
-      {
-        pic: 'img/slide4/image-2.png',
-        question: 'Какой сегодня день недели?',
-        variants: ['Понедельник', 'Воскресенье', 'Вторник', 'Суббота'],
-        answer: 'Понедельник'
-      }
-    ]
-  };
 
   /**
    * User info
@@ -272,8 +191,8 @@
    * Quiz
    */
   var quiz = (function () {
-    var todayQuiz = QUIZ_DATA[TODAY]
-      , answersCount = todayQuiz.length
+    var todayQuiz = []
+      , answersCount = 0
       , correctAnswersCount = 0
       , $testRoot = $('[data-test-root]')
       , step = 2;
@@ -300,8 +219,12 @@
       return tpl;
     };
 
-
     return {
+      init: function (quizData) {
+        todayQuiz = quizData;
+        answersCount = quizData.length
+      },
+
       render: function () {
         var questionsHtml = ''
           , answerIdx = 0;
@@ -377,6 +300,10 @@
    */
   var fortune = (function () {
     return {
+      init: function (fortuneText) {
+        $('[data-cookie-text]').text(fortuneText);
+      },
+
       show: function () {
         var $parent = $('[data-root-cookie]');
 
@@ -620,8 +547,6 @@
 
 
   // for 3 slide
-  $('[data-cookie-text]').text(FORTUNE_DATA[TODAY]);
-
   if (cookie.read('fortune') !== null) {
     fortune.show();
   }
@@ -674,5 +599,17 @@
       .then(leaderboard.render)
       .catch(console.error.bind(console));
   }
+
+  $.getJSON('http://dev.sailplay.ru/api/v2/partners/custom/kupivip_quiz/', {
+      store_department_id: PARTNER_ID,
+      token: AUTH_HASH
+    })
+    .done(function (res) {
+      if (res.status === 'ok') {
+        fortune.init(res.fortune.text);
+        quiz.init(res.quiz);
+      }
+    })
+    .fail(console.error.bind(console));
 
 }(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
