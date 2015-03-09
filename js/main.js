@@ -15,14 +15,14 @@
       sParameterName = sURLVariables[i].split('=');
 
       if (sParameterName[0] === sParam) {
-        return sParameterName[1];
+        return decodeURIComponent(sParameterName[1]);
       }
     }
   }
 
   var PARTNER_ID = getUrlParameter('partner_id') || 0;
   var AUTH_HASH = getUrlParameter('auth_hash') || '';
-  var PARENT_DOMAIN = 'http://test.kupivip.ru/biq';
+  var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://test.kupivip.ru/biq';
 
   /**
    * User info
@@ -57,8 +57,6 @@
 
               return entry;
             });
-
-        console.log(data[0].user_points);
 
         if (!user.unconfirmedPoints) {
           $('[data-unconfirmed-points]').hide();
