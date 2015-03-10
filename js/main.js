@@ -23,6 +23,7 @@
   var PARTNER_ID = getUrlParameter('partner_id') || 0;
   var AUTH_HASH = getUrlParameter('auth_hash') || '';
   var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://test.kupivip.ru/biq';
+  var IS_AUTH = !!PARTNER_ID && !!AUTH_HASH;
 
   /**
    * User info
@@ -572,7 +573,7 @@
   $body.on('click', '[data-test-start]', function (e) {
     e.preventDefault();
 
-    if (!!PARTNER_ID && !!AUTH_HASH) {
+    if (IS_AUTH) {
       quiz.start();
     } else {
       window.parent.postMessage('auth', PARENT_DOMAIN);
@@ -586,7 +587,7 @@
       quiz.next($(this).text());
     });
 
-  if (!!PARTNER_ID && !!AUTH_HASH) {
+  if (IS_AUTH) {
     api.init(PARTNER_ID)
       .then(function (res) {
         return api.login(AUTH_HASH).then(function () {
@@ -596,18 +597,18 @@
       .then(api.loadLeaderboard)
       .then(leaderboard.render)
       .catch(console.error.bind(console));
-  }
 
-  $.getJSON('http://dev.sailplay.ru/api/v2/partners/custom/kupivip_quiz/', {
+    $.getJSON('http://dev.sailplay.ru/api/v2/partners/custom/kupivip_quiz/', {
       store_department_id: PARTNER_ID,
       token: AUTH_HASH
     })
-    .done(function (res) {
-      if (res.status === 'ok') {
-        fortune.init(res.fortune.text);
-        quiz.init(res.quiz);
-      }
-    })
-    .fail(console.error.bind(console));
+      .done(function (res) {
+        if (res.status === 'ok') {
+          fortune.init(res.fortune.text);
+          quiz.init(res.quiz);
+        }
+      })
+      .fail(console.error.bind(console));
+  }
 
 }(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
