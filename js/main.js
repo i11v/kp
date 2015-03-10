@@ -286,6 +286,7 @@
       finish: function (count) {
         $('[data-correct-anwers-count]').text(count);
         $('[data-plural-count]').text(count === 1 ? 'вопрос' : count > 4 ? 'вопросов' :  'вопроса');
+        $('[data-quiz-points]').text(count * 5 + ' баллов');
 
         $testRoot
           .removeClass('show-test-1')
@@ -587,6 +588,7 @@
       quiz.next($(this).text());
     });
 
+  // Initialization
   if (IS_AUTH) {
     api.init(PARTNER_ID)
       .then(function (res) {
