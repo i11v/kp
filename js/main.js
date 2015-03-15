@@ -600,10 +600,9 @@
       .then(leaderboard.render)
       .catch(console.error.bind(console));
 
-    $.getJSON('http://dev.sailplay.ru/api/v2/partners/custom/kupivip_quiz/', {
-      store_department_id: PARTNER_ID,
-      token: AUTH_HASH
-    })
+    $.getJSON('http://sailplay.ru/js-api/' + PARTNER_ID + '/custom/kupivip_quiz/', {
+        auth_hash: AUTH_HASH
+      })
       .done(function (res) {
         if (res.status === 'ok') {
           fortune.init(res.fortune.text);
