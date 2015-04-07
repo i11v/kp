@@ -22,7 +22,7 @@
 
   var PARTNER_ID = getUrlParameter('partner_id') || 0;
   var AUTH_HASH = getUrlParameter('auth_hash') || '';
-  var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://test.kupivip.ru/biq';
+  var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://kupivip.ru/biq';
   var IS_AUTH = !!PARTNER_ID && !!AUTH_HASH;
 
   /**
