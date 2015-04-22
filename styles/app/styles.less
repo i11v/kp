@@ -1961,7 +1961,7 @@ span.link{
 }
 
 .test-bl {
-    width: 1180px;
+    width: 1380px;
     margin: 0 auto;
     color: #ffffff;
     padding-bottom: 40px;
@@ -1992,10 +1992,10 @@ span.link{
 
     .test-btn {
         display: inline-block;
-        width: 265px;
+        width: 310px;
         height: 80px;
         text-align: center;
-        font-size: 21px;
+        font-size: 16px;
         line-height: 80px;
         text-transform: uppercase;
         font-weight: bold;
@@ -2104,11 +2104,16 @@ span.link{
 
     .test-bl__text-title{
         padding-top: 42px;
-        font-size: 63px;
-        line-height: 75px;
+        font-size: 30px;
+        line-height: 40px;
         font-weight: bold;
         margin-bottom: 10px;
         text-transform: uppercase;
+
+        &.type-main{
+            font-size: 63px;
+            line-height: 75px;
+        }
     }
 
     .test-bl__text-descr{
@@ -2274,13 +2279,13 @@ span.link{
 
 
 
-@media screen and (max-width: 1250px), (max-height: 900px){
+@media screen and (max-width: 1400px), (max-height: 900px){
     .screen_slide__4{
         min-height: 530px;
     }
 
     .test-bl {
-        width: 950px;
+        width: 1180px;
         padding-bottom: 30px;
         height: 410px;
         top: -205px;
@@ -2294,9 +2299,9 @@ span.link{
         margin: 0 35px;
 
         .test-btn {
-            width: 211px;
+            width: 265px;
             height: 64px;
-            font-size: 17px;
+            font-size: 14px;
             line-height: 64px;
         }
     }
@@ -2337,9 +2342,12 @@ span.link{
 
         .test-bl__text-title{
             padding-top: 30px;
-            font-size: 50px;
-            line-height: 60px;
             margin-bottom: 10px;
+
+            &.type-main{
+                font-size: 50px;
+                line-height: 60px;
+            }
         }
 
         .test-bl__text-descr{
@@ -2380,6 +2388,19 @@ span.link{
         .final-text{
             font-size: 19px;
             line-height: 23px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .test-bl {
+        width: 950px;
+    }
+
+    .test-bl__buttons {
+
+        .test-btn {
+            width: 205px;
         }
     }
 }
