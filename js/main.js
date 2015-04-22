@@ -25,6 +25,8 @@
   var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://www.kupivip.ru/biq';
   var IS_AUTH = !!PARTNER_ID && !!AUTH_HASH;
 
+  var onError = console.error.bind(console);
+
   /**
    * User info
    */
@@ -592,13 +594,13 @@
   if (IS_AUTH) {
     api.init(PARTNER_ID)
       .then(function (res) {
+        api.loadLeaderboard().then(leaderboard.render, onError);
+
         return api.login(AUTH_HASH).then(function () {
           Promise.all([api.userInfo(), api.userHistory()]).then(userInfo.show);
         });
       })
-      .then(api.loadLeaderboard)
-      .then(leaderboard.render)
-      .catch(console.error.bind(console));
+      .catch(onError);
 
     $.getJSON('http://sailplay.ru/js-api/' + PARTNER_ID + '/custom/kupivip_quiz/', {
         auth_hash: AUTH_HASH
@@ -609,7 +611,7 @@
           quiz.init(res.quiz);
         }
       })
-      .fail(console.error.bind(console));
+      .fail(onError);
   }
 
 }(window, document, window.jQuery, window.SAILPLAY, vow.Promise));
