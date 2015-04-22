@@ -22,7 +22,7 @@
 
   var PARTNER_ID = getUrlParameter('partner_id') || 0;
   var AUTH_HASH = getUrlParameter('auth_hash') || '';
-  var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://www.kupivip.ru/biq';
+  var PARENT_DOMAIN = getUrlParameter('parent_domain') || 'http://www.kupivip.ru/';
   var IS_AUTH = !!PARTNER_ID && !!AUTH_HASH;
 
   var onError = console.error.bind(console);
@@ -569,8 +569,6 @@
 
   if (quizCookie !== null) {
     quiz.finish(parseInt(quizCookie));
-  } else {
-    quiz.render();
   }
 
   $body.on('click', '[data-test-start]', function (e) {
@@ -609,6 +607,7 @@
         if (res.status === 'ok') {
           fortune.init(res.fortune.text);
           quiz.init(res.quiz);
+          quiz.render();
         }
       })
       .fail(onError);
